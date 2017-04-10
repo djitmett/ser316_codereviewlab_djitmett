@@ -21,11 +21,12 @@ class MainFrame extends JFrame {
 	JComboBox		typeOptions;
 	JTextField		nameField;
 	JTextField		balanceField;
-	JButton 		depositButton;
-	JButton 		withdrawButton;
-	JButton			newAccountButton;
-	JButton			displayAccountsButton;
-	JButton			displayODAccountsButton;
+	//ID#18 CS.10 - Identifiers too long
+	JButton 		depositB;
+	JButton 		withdrawB;
+	JButton			newAccountB;
+	JButton			displayAccountsB;
+	JButton			displayODAccountsB;
 
 	public MainFrame(String propertyFile) throws IOException {
 
@@ -58,19 +59,20 @@ class MainFrame extends JFrame {
 		nameField = new JTextField(20);
 		balanceField = new JTextField(20);
 
-		newAccountButton = new JButton("New Account");
-		JButton depositButton = new JButton("Deposit");
-		JButton withdrawButton = new JButton("Withdraw");
+		newAccountB = new JButton("New Account");
+		JButton depositB = new JButton("Deposit");
+		JButton withdrawB = new JButton("Withdraw");
 		JButton saveButton = new JButton("Save Accounts");
-		displayAccountsButton = new JButton("List Accounts");
-		JButton displayAllAccountsButton = new JButton("All Accounts");
+		displayAccountsB = new JButton("List Accounts");
+		//ID#18 CS.10 - Identifiers too long
+		JButton displayAllAccountsB = new JButton("All Accounts");
 
 		this.addWindowListener(new FrameHandler());
-		newAccountButton.addActionListener(new NewAccountHandler());
-		displayAccountsButton.addActionListener(new DisplayHandler());
-		displayAllAccountsButton.addActionListener(new DisplayHandler());
-		depositButton.addActionListener(new DepositHandler());
-		withdrawButton.addActionListener(new WithdrawHandler());
+		newAccountB.addActionListener(new NewAccountHandler());
+		displayAccountsB.addActionListener(new DisplayHandler());
+		displayAllAccountsB.addActionListener(new DisplayHandler());
+		depositB.addActionListener(new DepositHandler());
+		withdrawB.addActionListener(new WithdrawHandler());
 		saveButton.addActionListener(new SaveAccountsHandler());		
 		
 		Container pane = getContentPane();
@@ -81,8 +83,8 @@ class MainFrame extends JFrame {
 		panel1.add(typeOptions);
 		
 		JPanel panel2 = new JPanel();
-		panel2.add(displayAccountsButton);
-		panel2.add(displayAllAccountsButton);
+		panel2.add(displayAccountsB);
+		panel2.add(displayAllAccountsB);
 		panel2.add(saveButton);
 		
 		JPanel panel3 = new JPanel();
@@ -94,9 +96,9 @@ class MainFrame extends JFrame {
 		panel4.add(balanceField);
 		
 		JPanel panel5 = new JPanel();
-		panel5.add(newAccountButton);
-		panel5.add(depositButton);
-		panel5.add(withdrawButton);
+		panel5.add(newAccountB);
+		panel5.add(depositB);
+		panel5.add(withdrawB);
 
 		pane.add(panel1);
 		pane.add(panel2);
@@ -110,7 +112,7 @@ class MainFrame extends JFrame {
 	class DisplayHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			List<Account> accounts = null;
-			if (e.getSource() == displayAccountsButton) {
+			if (e.getSource() == displayAccountsB) {
 				accounts = myServer.getActiveAccounts();
 			} else {
 				accounts = myServer.getAllAccounts();
