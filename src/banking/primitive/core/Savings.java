@@ -21,6 +21,8 @@ public class Savings extends Account {
 			if (balance >= 0.0f) {
 				setState(State.OPEN);
 			}
+			//Bug-21 Missing return true statement FD
+			return true;
 		}
 		return false;
 	}
